@@ -18,13 +18,13 @@ img, picture, svg, video{
 
 /* Code starts here */
 
-* {
+/* * {
 	border: 1px solid black;
-}
+} */
 
 body {
 	display: grid;
-	grid-template-rows: 10% 90%;
+	grid-template-rows: 5rem 1fr;
 	background-color: #F5F6FC;
 }
 
@@ -33,8 +33,9 @@ body {
 	position: sticky;
 	top: 1px;
 	justify-content: center;
-	background-color: #CED4EF;
+	background-color: #efcece;
 	box-shadow: 0px 0px 10px 0px #131313;
+	z-index: 1;
 }
 
 .title{
@@ -45,12 +46,16 @@ body {
 
 .main {
 	display: grid;
-	grid-template-columns: repeat(3, minmax(200px, 300px));
-	grid-template-rows: repeat(2, 400px);
+	grid-template-columns: 200px;
+	grid-template-rows: 300px;
+	grid-auto-rows: 300px;
+	grid-row: 2 / 3;
+	grid-column: 1 / 2;
 	justify-content: center;
 	gap: 3rem;
 	padding: 3%;
 }
+
 
 .cards {
 	border: 1px solid black;
@@ -62,7 +67,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
-	
+	text-align: center;
 }
 
 .book-data{
@@ -88,4 +93,113 @@ body {
 	text-align: center;
 	font-size: 5rem;
 	font-weight: 900;
+	transition: all 70ms;
 }
+
+.add-btn:hover{
+	background-color: #d2d6d3;
+	transform: scale(1.05);
+}
+
+.add-btn:active{
+	background-color: #ffffff;
+	font-size: 4rem;
+	transform: scale(0.9);
+}
+
+.modal-add-form {
+	margin: auto;
+	width: 300px;
+	height: 400px;
+}
+
+.add-form {
+	border: #db1717 1px solid;
+	height: 100%;
+	width: 100%;
+	display: grid;
+	grid-template-rows: 3fr 1fr;
+}
+
+.add-form div{
+	border: 1px dashed green;
+}
+
+.top-form {
+
+}
+
+@media all and (min-width: 768px) {
+	body {
+		display: grid;
+		grid-template-rows: 8rem 1fr;
+		background-color: #F5F6FC;
+	}
+	
+	.header {
+		display: flex;
+		position: sticky;
+		top: 1px;
+		justify-content: center;
+		background-color: #CED4EF;
+		box-shadow: 0px 0px 10px 0px #131313;
+	}
+	
+	.title{
+		display: flex;
+		align-items: flex-end;
+		padding-bottom: 10px;
+	}
+	
+	.main {
+		display: grid;
+		grid-template-columns: repeat(3, 20rem);
+		grid-template-rows: minmax(23rem, 26rem);
+		grid-auto-rows: minmax(23rem, 26rem);
+		justify-content: center;
+		gap: 3rem;
+		padding: 3%;
+	}
+	
+	
+	.cards {
+		border: 1px solid black;
+		border-radius: 1.2rem;
+		padding: 0.8rem;
+	}
+	
+	.stored-cards {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		
+	}
+	
+	.book-data{
+		display: flex;
+		flex-direction: column;
+		gap: 3rem;
+	}
+	
+	.edit-data{
+		display: flex;
+		justify-content: space-evenly;
+	}
+	
+	.add-new-card {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		
+	}
+	
+	.add-btn{
+		text-align: center;
+		font-size: 5rem;
+		font-weight: 900;
+	}
+}
+
+
+
