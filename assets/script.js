@@ -32,9 +32,10 @@ function addBook() {
     bookObj.pages = bookPages;
     library.push(bookObj)
 }
+
 function displayLibrary() {
     library.forEach((books, i)=> {
-        console.log(`${books.name}, ${books.author}, ${books.pages}, ${i}`);
+        console.log(`Name: ${books.name}, Author: ${books.author}, Page: ${books.pages}, index: ${i}`);
         let cardTitle = document.querySelector(`.main div:nth-child(${i+1}) .book-title`);
         let cardAuthor = document.querySelector(`.main div:nth-child(${i+1}) .book-author`);
         let cardPages = document.querySelector(`.main div:nth-child(${i+1}) .book-pages`);
@@ -44,35 +45,7 @@ function displayLibrary() {
     })
 }
 
-/* Event listener */
-addButton.addEventListener('click', () => {
-
-    modal.showModal();
-
-    input.forEach((element) => {
-        element.addEventListener('change', () => {
-            if(element == formTitle) {
-                titleData = element.value
-            }
-            if(element == formAuthor) {
-                authorData = element.value;
-            }
-            if(element == formPages) {
-                pageData = element.value
-            }
-        })
-    })
-
-    closeButton.addEventListener('click', () => {
-        modal.close()
-    })
-
-
-})
-
-addForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-
+function createCard() {
     const main = document.querySelector('.main');
     const cardContainer = document.createElement('div');
     cardContainer.classList.add('cards', 'stored-cards')
@@ -99,20 +72,64 @@ addForm.addEventListener('submit', (e) => {
     divBookData.appendChild(divCardAuthor);
     divBookData.appendChild(divCardPages);
 
-    const readButton = document.createElement('div');
-    readButton.classList.add('toggle-read');
-    readButton.textContent = 'Toggle Read'
-    const removeButton = document.createElement('div');
-    removeButton.classList.add('remove')
-    removeButton.textContent = 'Delete'
-    const editButton = document.createElement('div');
-    editButton.classList.add('edit');
-    editButton.textContent = 'Edit'
+    const readButtonElem = document.createElement('button');
+    readButtonElem.classList.add('toggle-read');
+    readButtonElem.textContent = 'Toggle Read'
+    const removeButtonElem = document.createElement('button');
+    removeButtonElem.classList.add('remove')
+    removeButtonElem.textContent = 'Delete'
+    const editButtonElem = document.createElement('button');
+    editButtonElem.classList.add('edit');
+    editButtonElem.textContent = 'Edit'
 
-    editData.appendChild(readButton);
-    editData.appendChild(removeButton);
-    editData.appendChild(editButton);
-;
+    editData.appendChild(readButtonElem);
+    editData.appendChild(removeButtonElem);
+    editData.appendChild(editButtonElem);
+
+    readButtonElem.addEventListener('click', () => {
+        console.log(true);
+        console.log(readButtonElem)
+    });
+
+    removeButtonElem.addEventListener('click', () => {
+        console.log(true);
+        console.log(removeButtonElem)
+    });
+
+
+    editButtonElem.addEventListener('click', () => {
+        console.log(true);
+        console.log(editButtonElem)
+    });
+}
+
+/* Event listener */
+addButton.addEventListener('click', () => {
+    modal.showModal();
+})
+
+closeButton.addEventListener('click', () => {
+    modal.close()
+})
+
+input.forEach((element) => {
+    element.addEventListener('change', () => {
+        if(element == formTitle) {
+            titleData = element.value
+        }
+        if(element == formAuthor) {
+            authorData = element.value;
+        }
+        if(element == formPages) {
+            pageData = element.value
+        }
+    })
+})
+
+
+addForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    createCard();
     addBook();
     displayLibrary();
 
@@ -122,10 +139,6 @@ addForm.addEventListener('submit', (e) => {
 
     modal.close()
 })
-
-
-
-
 
 
 
