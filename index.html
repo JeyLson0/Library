@@ -12,41 +12,31 @@
         <div class="title">My Library</div>
     </div>
     <div class="main">
-        <div class="cards stored-cards">
-            <div class="book-data">
-                <div class="book-title"></div>
-                <div class="book-author"></div>
-                <div class="book-pages"></div>
-            </div>
-            <div class="edit-data">
-                <div class="toggle-read">Toggle read</div>
-                <div class="Remove">Delete</div>
-                <div class="Edit">Edit</div>
-            </div>
-        </div>
+
+
         <button class="cards add-btn">+</button>
-        <dialog class="modal-add-form">
-            <form class="add-form">
-                <div class="top-form">
-                    <li>
-                        <label for="formTitle">Title: </label>
-                        <span><input type="text" name="formTitle" id="formTitle" value=""></span>
-                    </li>
-                    <li>
-                        <label for="formAuthor">Author: </label>
-                        <span><input type="text" name="formAuthor" id="formAuthor" value=""></span>
-                    </li>
-                    <li>
-                        <label for="formPages">Pages: </label>
-                        <span><input type="text" name="formPages" id="formPages" value=""></span>
-                    </li>
-                </div>
-                <div class="bottom-form">
-                    <button type="button" class="cancel-button">Cancel</button>
-                    <button type="submit" class="submit-button">Submit</button>
-                </div>
-            </form>
-        </dialog>
     </div>
+    <dialog class="modal-add-form">
+        <form class="add-form">
+            <div class="top-form">
+                <li>
+                    <label for="formTitle">Title: </label>
+                    <span><input type="text" name="formTitle" id="formTitle" value=""></span>
+                </li>
+                <li>
+                    <label for="formAuthor">Author: </label>
+                    <span><input type="text" name="formAuthor" id="formAuthor" value=""></span>
+                </li>
+                <li>
+                    <label for="formPages">Pages: </label>
+                    <span><input type="text" name="formPages" id="formPages" value=""></span>
+                </li>
+            </div>
+            <div class="bottom-form">
+                <button type="button" class="cancel-button">Cancel</button>
+                <button type="submit" class="submit-button">Submit</button>
+            </div>
+        </form>
+    </dialog>
 </body>
 </html>

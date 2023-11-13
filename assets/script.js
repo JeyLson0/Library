@@ -31,10 +31,8 @@ function addBook() {
     bookObj.author = bookAuthor;
     bookObj.pages = bookPages;
     library.push(bookObj)
-    displayLibrary();
 }
 function displayLibrary() {
-
     library.forEach((books, i)=> {
         console.log(`${books.name}, ${books.author}, ${books.pages}, ${i}`);
         let cardTitle = document.querySelector(`.main div:nth-child(${i+1}) .book-title`);
@@ -48,6 +46,7 @@ function displayLibrary() {
 
 /* Event listener */
 addButton.addEventListener('click', () => {
+
     modal.showModal();
 
     input.forEach((element) => {
@@ -68,16 +67,65 @@ addButton.addEventListener('click', () => {
         modal.close()
     })
 
-    addForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        addBook();
-        input.forEach((element) => {
-            element.value = ''
-        })
-        modal.close()
-    })
 
 })
+
+addForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const main = document.querySelector('.main');
+    const cardContainer = document.createElement('div');
+    cardContainer.classList.add('cards', 'stored-cards')
+    const editData = document.createElement('div');
+    editData.classList.add('edit-data')
+
+    main.insertBefore(cardContainer, addButton);
+
+    const divBookData = document.createElement('div');
+    divBookData.classList.add('book-data')
+
+    const divCardTitle = document.createElement('div');
+    divCardTitle.classList.add('book-title')
+    const divCardAuthor = document.createElement('div');
+    divCardAuthor.classList.add('book-author')
+    const divCardPages = document.createElement('div');
+    divCardPages.classList.add('book-pages')
+
+
+    cardContainer.appendChild(divBookData);
+    cardContainer.appendChild(editData);
+
+    divBookData.appendChild(divCardTitle);
+    divBookData.appendChild(divCardAuthor);
+    divBookData.appendChild(divCardPages);
+
+    const readButton = document.createElement('div');
+    readButton.classList.add('toggle-read');
+    readButton.textContent = 'Toggle Read'
+    const removeButton = document.createElement('div');
+    removeButton.classList.add('remove')
+    removeButton.textContent = 'Delete'
+    const editButton = document.createElement('div');
+    editButton.classList.add('edit');
+    editButton.textContent = 'Edit'
+
+    editData.appendChild(readButton);
+    editData.appendChild(removeButton);
+    editData.appendChild(editButton);
+;
+    addBook();
+    displayLibrary();
+
+    input.forEach((element) => {
+        element.value = ''
+    })
+
+    modal.close()
+})
+
+
+
+
 
 
 
