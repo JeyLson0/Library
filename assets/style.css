@@ -44,7 +44,7 @@ body {
 	padding-bottom: 10px;
 }
 
-.main {
+.main-container {
 	display: grid;
 	grid-template-columns: 200px;
 	grid-template-rows: 300px;
@@ -57,20 +57,19 @@ body {
 }
 
 
-.cards {
+
+
+.card {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	text-align: center;
 	border: 1px solid black;
 	border-radius: 1.2rem;
 	padding: 0.8rem;
 }
 
-.stored-cards {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
-	text-align: center;
-}
-
-.book-data{
+.card-data{
 	display: flex;
 	flex-direction: column;
 	gap: 3rem;
@@ -151,7 +150,7 @@ body {
 		padding-bottom: 10px;
 	}
 	
-	.main {
+	.main-container {
 		display: grid;
 		grid-template-columns: repeat(3, 20rem);
 		grid-template-rows: minmax(23rem, 26rem);
@@ -162,20 +161,17 @@ body {
 	}
 	
 	
-	.cards {
+	.card {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
 		border: 1px solid black;
 		border-radius: 1.2rem;
 		padding: 0.8rem;
 	}
 	
-	.stored-cards {
-		display: flex;
-		flex-direction: column;
-		justify-content: space-around;
-		
-	}
 	
-	.book-data{
+	.card-data{
 		display: flex;
 		flex-direction: column;
 		gap: 3rem;
