@@ -1,11 +1,10 @@
-/* DOM */
 const submitButton = document.querySelector('.submit-button')
 const closeButton = document.querySelector('.cancel-button')
 const formTitle = document.querySelector('#formTitle');
 const formAuthor = document.querySelector('#formAuthor');
 const formPages = document.querySelector('#formPages');
 const addForm = document.querySelector('.add-form')
-const input = document.querySelectorAll('input[type="text"]') //array of elements
+const input = document.querySelectorAll('input[type="text"]') 
 const addButton = document.querySelector('.add-btn');
 const modal = document.querySelector('dialog');
 
@@ -15,12 +14,13 @@ let titleData;
 let authorData;
 let pageData
 
-/* Obj and Arr */
 function Book(name, author, pages) {
     this.name = name;
     this.author = author;
     this.pages = pages;
 }
+
+Book.prototype.status = true;
 
 function addBook() {
     let bookObj = new Book;
@@ -87,9 +87,23 @@ function createCard() {
     editData.appendChild(readButtonElem);
     editData.appendChild(removeButtonElem);
     editData.appendChild(editButtonElem);    
-    
-/*     readButtonElem.addEventListener('click', () => {
-    }); */
+
+    readButtonElem.addEventListener('click', () => {
+        for(i=0; i < mainArr.length; i++) {
+            if (mainArr[i] == cardContainer) {
+                if (library[i].status = true) {
+                    console.log(`Previous status: ${library[i].status}`)
+                    library[i].status = false;
+                    console.log(`Changed to: ${library[i].status}`)
+                }
+                if (library[i].status = false) {
+                    console.log(`Previous status: ${library[i].status}`)
+                    library[i].status = true;
+                    console.log(`Changed to: ${library[i].status}`)
+                }
+            }
+        }
+    });
 
     removeButtonElem.addEventListener('click', (e) => {
         for(i=0; i < mainArr.length; i++) {
@@ -106,7 +120,6 @@ function createCard() {
    
 }
 
-/* Event listener */
 addButton.addEventListener('click', () => {
     modal.showModal();
 })

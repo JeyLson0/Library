@@ -124,8 +124,14 @@ body {
 	border: 1px dashed green;
 }
 
-.top-form {
+.check-icon {
+	border: 1px solid red;
+	width: 30px;
+	transition: 60ms;
+}
 
+.check-icon:hover {
+	transform: scale(2.05);
 }
 
 @media all and (min-width: 768px) {

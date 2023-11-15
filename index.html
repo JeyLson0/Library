@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library</title>
-    <script src="./assets/script.js" defer></script>
-    <link rel="stylesheet" href="./assets/style.css">
+    <script src="./script.js" defer></script>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
     
@@ -22,15 +22,15 @@
             <div class="top-form">
                 <li>
                     <label for="formTitle">Title: </label>
-                    <span><input type="text" name="formTitle" id="formTitle" value=""></span>
+                    <span><input type="text" name="formTitle" id="formTitle" required></span>
                 </li>
                 <li>
                     <label for="formAuthor">Author: </label>
-                    <span><input type="text" name="formAuthor" id="formAuthor" value=""></span>
+                    <span><input type="text" name="formAuthor" id="formAuthor" required></span>
                 </li>
                 <li>
                     <label for="formPages">Pages: </label>
-                    <span><input type="text" name="formPages" id="formPages" value=""></span>
+                    <span><input type="text" name="formPages" id="formPages" required></span>
                 </li>
             </div>
             <div class="bottom-form">
@@ -39,5 +39,7 @@
             </div>
         </form>
     </dialog>
+    
+    <dialog class="modal-edit-form"></dialog>
 </body>
 </html>
