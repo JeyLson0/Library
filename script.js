@@ -4,7 +4,7 @@ const formTitle = document.querySelector('#formTitle');
 const formAuthor = document.querySelector('#formAuthor');
 const formPages = document.querySelector('#formPages');
 const addForm = document.querySelector('.add-form')
-const input = document.querySelectorAll('input[type="text"]') 
+const input = document.querySelectorAll('.top-form>input') 
 const addButton = document.querySelector('.add-btn');
 const modal = document.querySelector('dialog');
 
@@ -22,7 +22,7 @@ function Book(name, author, pages) {
 
 Book.prototype.status = true;
 
-function addBook() {
+function addBook() { 
     let bookObj = new Book;
     let bookTitle = titleData;
     let bookAuthor = authorData;
@@ -74,37 +74,33 @@ function createCard() {
     divBookData.appendChild(divCardAuthor);
     divBookData.appendChild(divCardPages);
 
-    const readButtonElem = document.createElement('button');
-    readButtonElem.classList.add('toggle-read');
-    readButtonElem.textContent = 'Toggle Read'
-    const removeButtonElem = document.createElement('button');
-    removeButtonElem.classList.add('remove')
-    removeButtonElem.textContent = 'Delete'
-    const editButtonElem = document.createElement('button');
-    editButtonElem.classList.add('edit');
-    editButtonElem.textContent = 'Edit'
+    const readButtonElem = document.createElement('img');
+    readButtonElem.setAttribute('src', './assets/read-img.svg')
+    readButtonElem.setAttribute('alt', 'read-img')
+    const removeButtonElem = document.createElement('img');
+    removeButtonElem.setAttribute('src', './assets/delete-img.svg')
+    removeButtonElem.setAttribute('alt', 'delete-img')
 
     editData.appendChild(readButtonElem);
     editData.appendChild(removeButtonElem);
-    editData.appendChild(editButtonElem);    
-
+   
     readButtonElem.addEventListener('click', () => {
         for(i=0; i < mainArr.length; i++) {
             if (mainArr[i] == cardContainer) {
-                if (library[i].status = true) {
+                if (library[i].status == true) {
+                    readButtonElem.setAttribute('src', './assets/not-read-img.svg')
                     console.log(`Previous status: ${library[i].status}`)
-                    library[i].status = false;
-                    console.log(`Changed to: ${library[i].status}`)
+                    return library[i].status = false;
                 }
-                if (library[i].status = false) {
+                if (library[i].status == false) {
+                    readButtonElem.setAttribute('src', './assets/read-img.svg')
                     console.log(`Previous status: ${library[i].status}`)
-                    library[i].status = true;
-                    console.log(`Changed to: ${library[i].status}`)
+                    return library[i].status = true;
                 }
             }
         }
     });
-
+    
     removeButtonElem.addEventListener('click', (e) => {
         for(i=0; i < mainArr.length; i++) {
             if (mainArr[i] == cardContainer) {
@@ -113,11 +109,6 @@ function createCard() {
             }
         }
     });
-
-
-/*     editButtonElem.addEventListener('click', (e) => {
-    }); */
-   
 }
 
 addButton.addEventListener('click', () => {

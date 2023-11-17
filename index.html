@@ -6,32 +6,24 @@
     <title>Library</title>
     <script src="./script.js" defer></script>
     <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
 </head>
 <body>
-    
     <div class="header">
-        <div class="title">My Library</div>
+        <div class="title"><p>My Library</p></div>
     </div>
-
-    <div class="main-container"></div>
-
-    <button class="card add-btn">+</button>
-
+    <div class="wrapper">
+        <div class="main-container"></div>
+    </div>
+    <button class="add-btn">+</button>
     <dialog class="modal-add-form">
         <form class="add-form">
             <div class="top-form">
-                <li>
-                    <label for="formTitle">Title: </label>
-                    <span><input type="text" name="formTitle" id="formTitle" required></span>
-                </li>
-                <li>
-                    <label for="formAuthor">Author: </label>
-                    <span><input type="text" name="formAuthor" id="formAuthor" required></span>
-                </li>
-                <li>
-                    <label for="formPages">Pages: </label>
-                    <span><input type="text" name="formPages" id="formPages" required></span>
-                </li>
+                <input type="text" name="formTitle" id="formTitle" placeholder="Title" required>
+                <input type="text" name="formAuthor" id="formAuthor" placeholder="Author" required>
+                <input type="number" name="formPages" id="formPages" placeholder="Pages" required>
             </div>
             <div class="bottom-form">
                 <button type="button" class="cancel-button">Cancel</button>
